@@ -8,6 +8,7 @@ class CityScreen extends StatefulWidget {
 
 class _CityScreenState extends State<CityScreen> {
   String cityName = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,7 @@ class _CityScreenState extends State<CityScreen> {
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
-            children: [
+            children: <Widget>[
               Align(
                 alignment: Alignment.topLeft,
                 child: FlatButton(
@@ -37,7 +38,6 @@ class _CityScreenState extends State<CityScreen> {
               Container(
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
-                  autofocus: true,
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -49,7 +49,7 @@ class _CityScreenState extends State<CityScreen> {
               ),
               FlatButton(
                 onPressed: () {
-                  if (cityName.isNotEmpty) {
+                  if (cityName != '' || cityName != null) {
                     Navigator.pop(context, cityName);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
